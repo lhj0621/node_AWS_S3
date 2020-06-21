@@ -1,0 +1,37 @@
+<% include include/head %>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-3">사진 추가</h1>
+        <form action="/resume/imgupload" enctype="multipart/form-data" method="POST">
+            <div class="row" style="margin: 0;">
+                <div class="col-md-6 mb-3">
+                    <label>제목</label>
+                    <input type="text" class="form-control" name="title">
+                    <div class="invalid-feedback">
+                        제목을 입력하세요
+                    </div>
+                </div>
+                <div class="input-group col-12">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="img">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+                <div class="col mt-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
+<% include include/foot %>

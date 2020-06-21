@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<% include include/head %>
+
+<body>
+  <h1 style="text-align: center;">이미지</h1><br>
+  <h4 style="text-align: right;"><span id="member_name">
+    </span></h4>
+  <div class="table-responsive">
+    <div class="col" style="float: right; font-size: 30px;">
+      <a href="/resume/imgupload" class="btn btn-primary btn-lg">
+        <span> resume add</span>
+      </a>
+    </div>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>제목</th>
+          <th>파일명</th>
+          <th>이미지</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(i = 0 ; i < result.count ; i++){ %>
+        <tr>
+          <td><%= result.data[i].title %></td>
+          <td><%= result.data[i].img_name %></td>
+          <td><img src="<%= result.data[i].img_url %>"  height="200"></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+<% include include/foot %>
