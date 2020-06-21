@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Sequelize = require('sequelize');
-const config = require(__dirname + '/../config/config.json')['development'];
+const config = require(__dirname + '/../config/config.json')['production'];
 
 const AWS = require('aws-sdk');
 AWS.config.loadFromPath(__dirname + '/../config/aws_config.json');
